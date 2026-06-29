@@ -3,14 +3,14 @@ services:
       build:
         dockerfile: catalogue.Dockerfile
       image: ak3852/catalogue:1.0.0
-      containaer_name: catalogue
+      container_name: catalogue
       depends_on:
       - mongodb
   mongodb:
       build: 
         dockerfile: mongodb.Dockerfile # it moves to mongodb directory
       image: ak3852/mongodb:1.0.0 # docker build -t ak3852/mongodb:1.0.0
-      containaer_name: mongodb
+      container_name: mongodb
 
 
 networks:

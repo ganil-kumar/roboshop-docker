@@ -1,14 +1,14 @@
 services:
   catalogue:
       build: ./catalogue
-      image: joindevops/catalogue:1.0.0
+      image: ak3852/catalogue:1.0.0
       container_name: catalogue
       depends_on:
       - mongodb
 
   user:
    build: ./user
-   image: joindevops/user:1.0.0
+   image: ak3852/user:1.0.0
    container_name: user
    depends_on:
    - redis
@@ -16,7 +16,7 @@ services:
 
   cart:
    build: ./cart
-   image: joindevops/cart:1.0.0
+   image: ak3852/cart:1.0.0
    container_name: cart
    depends_on:
    - redis
@@ -24,7 +24,7 @@ services:
 
   shipping:
    build: ./shipping
-   image: joindevops/shipping:1.0.0
+   image: ak3852/shipping:1.0.0
    container_name: shipping
    depends_on:
    - mysql
@@ -32,13 +32,13 @@ services:
 
   payment:
    build: ./payment
-   image: joindevops/payment:1.0.0
+   image: ak3852/payment:1.0.0
    container_name: payment
    environment:
     CART_HOST: "cart"
-    CART_PORT: "80:80"
+    CART_PORT: "8080"
     USER_HOST: "user"
-    USER_PORT: "80:80"
+    USER_PORT: "8080"
     AMQP_HOST: "rabbitmq"
     AMQP_USER: "roboshop" 
     AMQP_PASS: "roboshop123"
@@ -49,7 +49,7 @@ services:
 
   frontend:
    build: ./frontend
-   image: joindevops/frontend:1.0.0
+   image: ak3852/frontend:1.0.0
    container_name: frontend
    ports:
    - "80:80"
@@ -61,7 +61,7 @@ services:
    - payment
   mongodb:
       build: ./mongodb # it moves to mongodb directory
-      image: joindevops/mongodb:1.0.0 # docker build -t ak3852/mongodb:1.0.0
+      image: ak3852/mongodb:1.0.0 # docker build -t ak3852/mongodb:1.0.0
       container_name: mongodb
 
   redis:
@@ -70,7 +70,7 @@ services:
 
   mysql:
    build: ./mysql
-   image: joindevops/mysql:1.0.0
+   image: ak3852/mysql:1.0.0
    container_name: mysql
 
   rabbitmq:

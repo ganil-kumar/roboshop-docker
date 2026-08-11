@@ -36,9 +36,9 @@ services:
    container_name: payment
    environment:
     CART_HOST: "cart"
-    CART_PORT: "8080"
+    CART_PORT: "80:80"
     USER_HOST: "user"
-    USER_PORT: "8080"
+    USER_PORT: "80:80"
     AMQP_HOST: "rabbitmq"
     AMQP_USER: "roboshop" 
     AMQP_PASS: "roboshop123"

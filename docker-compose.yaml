@@ -51,7 +51,7 @@ services:
    build: ./frontend
    image: joindevops/frontend:1.0.0
    container_name: frontend
-   port:
+   ports:
    - "80:80"
    depends_on:
    - catalogue
